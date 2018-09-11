@@ -11,7 +11,7 @@ const helpers = require("../helpers.js");
 function _listBundledFiles(entryPointsPath, ignore) {
     return Q.Promise(function(resolve, reject) {
         var files = [];
-        var b = browserify();
+        var b = browserify({ ignoreMissing: true });
         if (ignore) {
             for (let i = 0 ; i < ignore.length ; i++) {
                 b.exclude(ignore[i]);
